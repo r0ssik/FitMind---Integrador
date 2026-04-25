@@ -1,0 +1,14 @@
+.forgot-link {
+  text-align: right;
+  margin-bottom: 16px;
+  margin-top: -4px;
+
+  a {
+    font-size: 13px;
+    color: var(--text-secondary);
+
+    &:hover {
+      color: var(--primary-dark);
+    }
+  }
+}

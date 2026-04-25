@@ -1,0 +1,93 @@
+<div class="page-layout">
+  <header class="page-header">
+    <button class="back-btn" (click)="goBack()">←</button>
+    <h1>Planos de Treino</h1>
+    <button class="generate-btn" (click)="goGenerate()">+ IA</button>
+  </header>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab" [class.active]="activeTab() === 'current'" (click)="activeTab.set('current')">
+      Plano Atual
+    </button>
+    <button class="tab" [class.active]="activeTab() === 'history'" (click)="activeTab.set('history')">
+      Histórico
+    </button>
+  </div>
+
+  <main class="page-content">
+
+    <!-- Plano Atual -->
+    @if (activeTab() === 'current') {
+      <div class="plan-header-card">
+        <div class="plan-badge ai">🤖 Gerado por IA</div>
+        <h2>{{ currentPlan.name }}</h2>
+        <div class="plan-meta">
+          <span>🎯 {{ currentPlan.goal }}</span>
+          <span>📅 {{ currentPlan.daysPerWeek }}x por semana</span>
+          <span>⏱ {{ currentPlan.weeks }} semanas</span>
+        </div>
+        <p class="plan-created">Criado em {{ formatDate(currentPlan.createdAt) }}</p>
+      </div>
+
+      <p class="section-label">Dias de treino</p>
+
+      @for (day of currentPlan.days; track day.day) {
+        <div class="day-card">
+          <div class="day-header" (click)="toggleDay(day.day)">
+            <div class="day-info">
+              <span class="day-name">{{ day.day }}</span>
+              <span class="day-focus">{{ day.focus }}</span>
+            </div>
+            <div class="day-right">
+              <span class="exercise-count">{{ day.exercises.length }} exercícios</span>
+              <span class="chevron" [class.open]="expandedDay() === day.day">›</span>
+            </div>
+          </div>
+
+          @if (expandedDay() === day.day) {
+            <div class="exercise-list">
+              @for (ex of day.exercises; track ex.name) {
+                <div class="exercise-row">
+                  <div class="ex-info">
+                    <span class="ex-name">{{ ex.name }}</span>
+                    <span class="ex-detail">{{ ex.sets }}x {{ ex.reps }} · Descanso: {{ ex.rest }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      }
+
+      <button class="btn-outline-green" (click)="goGenerate()">
+        🤖 Gerar novo plano com IA
+      </button>
+    }
+
+    <!-- Histórico -->
+    @if (activeTab() === 'history') {
+      @for (plan of history; track plan.id) {
+        <div class="history-card">
+          <div class="plan-badge ai" style="margin-bottom: 8px">🤖 IA</div>
+          <h3>{{ plan.name }}</h3>
+          <div class="plan-meta">
+            <span>🎯 {{ plan.goal }}</span>
+            <span>📅 {{ plan.daysPerWeek }}x/sem</span>
+            <span>⏱ {{ plan.weeks }} sem.</span>
+          </div>
+          <p class="plan-created">{{ formatDate(plan.createdAt) }}</p>
+          <button class="restore-btn">Restaurar plano</button>
+        </div>
+      }
+
+      @if (history.length === 0) {
+        <div class="empty-state">
+          <div class="empty-icon">📋</div>
+          <p>Nenhum plano no histórico</p>
+        </div>
+      }
+    }
+
+  </main>
+</div>
