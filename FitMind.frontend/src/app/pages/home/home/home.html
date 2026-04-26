@@ -6,7 +6,7 @@
       <span class="user-name">{{ userName }} 👋</span>
     </div>
     <div class="header-right">
-      <button class="avatar" (click)="logout()" title="Sair">{{ userInitials }}</button>
+      <button class="avatar" (click)="goProfile()" title="Meu perfil">{{ userInitials }}</button>
     </div>
   </header>
 
@@ -168,23 +168,23 @@
 
   <!-- Bottom Navigation -->
   <nav class="bottom-nav">
-    <button class="nav-item" [class.active]="activeNav() === 'home'" (click)="activeNav.set('home')">
+    <button class="nav-item" [class.active]="activeNav() === 'home'"     (click)="navigate('home')">
       <span class="nav-icon">🏠</span>
       <span>Início</span>
     </button>
-    <button class="nav-item" [class.active]="activeNav() === 'workout'" (click)="activeNav.set('workout')">
+    <button class="nav-item" [class.active]="activeNav() === 'workout'"  (click)="navigate('workout')">
       <span class="nav-icon">🏋️</span>
       <span>Treino</span>
     </button>
-    <button class="nav-item" [class.active]="activeNav() === 'diet'" (click)="activeNav.set('diet')">
+    <button class="nav-item" [class.active]="activeNav() === 'diet'"     (click)="navigate('diet')">
       <span class="nav-icon">🥗</span>
       <span>Dieta</span>
     </button>
-    <button class="nav-item" [class.active]="activeNav() === 'progress'" (click)="activeNav.set('progress')">
+    <button class="nav-item" [class.active]="activeNav() === 'progress'" (click)="navigate('progress')">
       <span class="nav-icon">📈</span>
       <span>Progresso</span>
     </button>
-    <button class="nav-item" [class.active]="activeNav() === 'social'" (click)="activeNav.set('social')">
+    <button class="nav-item" [class.active]="activeNav() === 'social'"   (click)="navigate('social')">
       <span class="nav-icon">👥</span>
       <span>Social</span>
     </button>

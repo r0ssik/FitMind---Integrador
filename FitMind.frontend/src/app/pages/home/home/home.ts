@@ -3,6 +3,7 @@ import { DecimalPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { Auth } from '../../../services/auth';
 
+
 interface WorkoutExercise {
   name: string;
   sets: string;
@@ -126,5 +127,20 @@ export class Home {
 
   challengeProgress(c: Challenge): number {
     return (c.current / c.total) * 100;
+  }
+
+  goProfile(): void { this.router.navigate(['/profile']); }
+
+  navigate(section: string): void {
+    const map: Record<string, string> = {
+      home:     '/home',
+      workout:  '/workout-plans',
+      diet:     '/food-diary',
+      progress: '/progress',
+      social:   '/social',
+    };
+    this.activeNav.set(section);
+    const route = map[section];
+    if (route && route !== '/home') this.router.navigate([route]);
   }
 }

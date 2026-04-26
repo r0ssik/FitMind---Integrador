@@ -58,5 +58,53 @@ export const routes: Routes = [
     path: 'image-analysis',
     loadComponent: () => import('./pages/diet/image-analysis/image-analysis').then(m => m.ImageAnalysis),
   },
+  {
+    path: 'progress',
+    loadComponent: () => import('./pages/progress/progress/progress').then(m => m.Progress),
+  },
+  {
+    path: 'measurements',
+    loadComponent: () => import('./pages/measurements/measurements/measurements').then(m => m.Measurements),
+  },
+  {
+    path: 'achievements',
+    loadComponent: () => import('./pages/achievements/achievements/achievements').then(m => m.Achievements),
+  },
+  {
+    path: 'social',
+    loadComponent: () => import('./pages/social/social/social').then(m => m.Social),
+  },
+  {
+    path: 'challenges/create',
+    loadComponent: () => import('./pages/challenges/challenge-create/challenge-create').then(m => m.ChallengeCreate),
+  },
+  {
+    path: 'challenges/:id',
+    loadComponent: () => import('./pages/challenges/challenge-detail/challenge-detail').then(m => m.ChallengeDetail),
+  },
+  {
+    path: 'profile',
+    loadComponent: () => import('./pages/profile/my-profile/my-profile').then(m => m.MyProfile),
+  },
+  {
+    path: 'profile/:id',
+    loadComponent: () => import('./pages/profile/user-profile/user-profile').then(m => m.UserProfile),
+  },
+  {
+    path: 'settings',
+    loadComponent: () => import('./pages/settings/settings/settings').then(m => m.Settings),
+  },
+  {
+    path: 'history',
+    loadComponent: () => import('./pages/history/history/history').then(m => m.History),
+  },
+  {
+    path: 'admin',
+    loadComponent: () => import('./pages/admin/admin-dashboard/admin-dashboard').then(m => m.AdminDashboard),
+  },
+  {
+    path: 'admin/users',
+    loadComponent: () => import('./pages/admin/admin-users/admin-users').then(m => m.AdminUsers),
+  },
   { path: '**', redirectTo: 'login' },
 ];

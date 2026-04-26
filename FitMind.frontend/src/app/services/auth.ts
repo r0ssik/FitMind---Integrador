@@ -70,6 +70,14 @@ export class Auth {
     return new Promise(resolve => setTimeout(resolve, 800));
   }
 
+  updateProfile(partial: Partial<UserProfile>): void {
+    const current = this.currentUser();
+    if (!current) return;
+    const updated = { ...current, ...partial };
+    localStorage.setItem(this.USER_KEY, JSON.stringify(updated));
+    this.currentUser.set(updated);
+  }
+
   logout(): void {
     localStorage.removeItem(this.TOKEN_KEY);
     localStorage.removeItem(this.USER_KEY);
