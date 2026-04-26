@@ -124,13 +124,10 @@ export class WorkoutPlans {
     this.expandedDay.set(this.expandedDay() === day ? null : day);
   }
 
-  goGenerate(): void {
-    this.router.navigate(['/workout-plans/generate']);
-  }
-
-  goBack(): void {
-    this.router.navigate(['/home']);
-  }
+  goGenerate():      void { this.router.navigate(['/workout-plans/generate']); }
+  goDetail():        void { this.router.navigate(['/workout-plans/detail']); }
+  goWorkoutHistory():void { this.router.navigate(['/workout-history']); }
+  goBack():          void { this.router.navigate(['/home']); }
 
   formatDate(date: Date): string {
     return date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });

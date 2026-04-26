@@ -4,7 +4,10 @@
   <header class="page-header">
     <button class="back-btn" (click)="goBack()">&#8592;</button>
     <h1>Feed Social</h1>
-    <button class="new-post-btn" (click)="showNewPost.set(true)">✏️</button>
+    <div style="display:flex;gap:6px">
+      <button class="new-post-btn" (click)="goCreateChallenge()" title="Criar desafio">🏆</button>
+      <button class="new-post-btn" (click)="showNewPost.set(true)" title="Novo post">✏️</button>
+    </div>
   </header>
 
   <!-- Filter tabs -->

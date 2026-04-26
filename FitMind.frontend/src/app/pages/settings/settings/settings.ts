@@ -39,6 +39,8 @@ export class Settings {
     this.auth.logout();
   }
 
-  goBack():    void { this.router.navigate(['/home']); }
-  goProfile(): void { this.router.navigate(['/profile']); }
+  goBack():       void { this.router.navigate(['/home']); }
+  goProfile():    void { this.router.navigate(['/profile']); }
+  goAdmin():      void { this.router.navigate(['/admin']); }
+  goAdminUsers(): void { this.router.navigate(['/admin/users']); }
 }

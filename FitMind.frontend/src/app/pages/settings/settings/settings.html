@@ -151,6 +151,19 @@
       </button>
     </div>
 
+    <!-- ── Admin ─────────────────────────────────────────────────────────── -->
+    <p class="settings-section-title">🛡️ Administração</p>
+    <div class="settings-card">
+      <button class="setting-link" (click)="goAdmin()">
+        <span>📊 Painel administrativo</span>
+        <span class="chevron">›</span>
+      </button>
+      <button class="setting-link" style="border:none" (click)="goAdminUsers()">
+        <span>👥 Gestão de usuários</span>
+        <span class="chevron">›</span>
+      </button>
+    </div>
+
   </main>
 
   <!-- ── Logout confirm ─────────────────────────────────────────────────────── -->

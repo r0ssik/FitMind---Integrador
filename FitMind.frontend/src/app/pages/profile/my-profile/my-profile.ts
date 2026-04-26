@@ -93,6 +93,8 @@ export class MyProfile {
 
   cancelEdit(): void { this.editing.set(false); }
 
-  goBack():     void { this.router.navigate(['/home']); }
-  goSettings(): void { this.router.navigate(['/settings']); }
+  goBack():         void { this.router.navigate(['/home']); }
+  goSettings():     void { this.router.navigate(['/settings']); }
+  goAchievements(): void { this.router.navigate(['/achievements']); }
+  goHistory():      void { this.router.navigate(['/history']); }
 }

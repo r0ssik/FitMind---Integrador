@@ -72,6 +72,18 @@
         </div>
       </div>
 
+      <div class="profile-section">
+        <span class="section-label" style="margin-bottom:10px; display:block">Atividade</span>
+        <button class="setting-link" (click)="goAchievements()">
+          <span>🏅 Minhas conquistas</span>
+          <span class="chevron">›</span>
+        </button>
+        <button class="setting-link" style="border:none" (click)="goHistory()">
+          <span>📋 Histórico geral</span>
+          <span class="chevron">›</span>
+        </button>
+      </div>
+
     } @else {
 
       <!-- ── Edit form ──────────────────────────────────────────────────────── -->

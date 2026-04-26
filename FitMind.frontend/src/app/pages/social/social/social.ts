@@ -157,5 +157,6 @@ export class Social {
   }
 
   goToProfile(userId: number): void { this.router.navigate(['/profile', userId]); }
-  goBack():                   void  { this.router.navigate(['/home']); }
+  goCreateChallenge():         void { this.router.navigate(['/challenges/create']); }
+  goBack():                    void { this.router.navigate(['/home']); }
 }

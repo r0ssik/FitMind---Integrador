@@ -150,13 +150,10 @@ export class FoodDiary {
     return this.selectedDate().toDateString() === new Date().toDateString();
   }
 
-  goBack(): void {
-    this.router.navigate(['/home']);
-  }
-
-  goDietPlan(): void {
-    this.router.navigate(['/diet-plan']);
-  }
+  goBack():          void { this.router.navigate(['/home']); }
+  goDietPlan():      void { this.router.navigate(['/diet-plan']); }
+  goImageAnalysis(): void { this.router.navigate(['/image-analysis']); }
+  goManualMeal():    void { this.router.navigate(['/manual-meal']); }
 
   constructor(private router: Router) {}
 }

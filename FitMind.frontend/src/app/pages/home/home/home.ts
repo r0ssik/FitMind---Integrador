@@ -129,7 +129,8 @@ export class Home {
     return (c.current / c.total) * 100;
   }
 
-  goProfile(): void { this.router.navigate(['/profile']); }
+  goProfile():       void { this.router.navigate(['/profile']); }
+  goNotifications(): void { this.router.navigate(['/notifications']); }
 
   navigate(section: string): void {
     const map: Record<string, string> = {

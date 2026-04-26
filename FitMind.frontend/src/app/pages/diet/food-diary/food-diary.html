@@ -155,6 +155,16 @@
       <div class="modal-sheet" (click)="$event.stopPropagation()">
         <div class="modal-handle"></div>
         <h3 class="modal-title">Adicionar alimento</h3>
+        <div class="modal-add-actions">
+          <button class="modal-action-btn" (click)="goImageAnalysis()">
+            <span>📷</span>
+            <span>Analisar por foto</span>
+          </button>
+          <button class="modal-action-btn" (click)="goManualMeal()">
+            <span>✏️</span>
+            <span>Adicionar manualmente</span>
+          </button>
+        </div>
         <div class="quick-foods">
           <p class="quick-label">Alimentos rápidos</p>
           @for (food of [

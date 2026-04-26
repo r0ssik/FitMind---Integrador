@@ -94,3 +94,21 @@
   font-weight: 600;
   color: var(--text-primary);
 }
+
+.setting-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: none;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+
+  .chevron { color: var(--text-hint); font-size: 18px; }
+  &:hover { color: var(--primary-dark); }
+}
