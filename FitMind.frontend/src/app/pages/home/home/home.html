@@ -1,15 +1,32 @@
 <div class="home-layout">
-  <!-- Header -->
-  <header class="home-header">
-    <div class="header-left">
-      <span class="greeting">Bom dia,</span>
-      <span class="user-name">{{ userName }} 👋</span>
-    </div>
-    <div class="header-right">
-      <button class="notif-btn" (click)="goNotifications()" title="Notificações">🔔</button>
-      <button class="avatar" (click)="goProfile()" title="Meu perfil">{{ userInitials }}</button>
-    </div>
-  </header>
+
+  <!-- Header usuário -->
+  <header class="user-header">
+
+<div>
+   <span class="greeting">Bom dia,</span>
+   <span class="user-name">
+      {{ userName }} 👋
+   </span>
+</div>
+
+<img src="logo.png" class="home-logo">
+
+<div class="user-actions">
+
+<button class="notif-btn"
+(click)="goNotifications()">
+🔔
+</button>
+
+<button class="avatar"
+(click)="goProfile()">
+{{ userInitials }}
+</button>
+
+</div>
+</header>
+
 
   <!-- Content -->
   <main class="home-content" style="padding-bottom: 80px">
