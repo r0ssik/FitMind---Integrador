@@ -38,10 +38,10 @@ export class WorkoutDetail {
   finished = signal(false);
 
   effortLabels: Record<string, { label: string; icon: string; color: string }> = {
-    easy:     { label: 'Fácil',    icon: '😌', color: '#4caf50' },
-    moderate: { label: 'Moderado', icon: '😤', color: '#ff9800' },
-    hard:     { label: 'Difícil',  icon: '😰', color: '#f44336' },
-    max:      { label: 'Máximo',   icon: '🔥', color: '#9c27b0' },
+    easy:     { label: 'Fácil',    icon: 'sentiment_satisfied',         color: '#4caf50' },
+    moderate: { label: 'Moderado', icon: 'sentiment_dissatisfied',      color: '#ff9800' },
+    hard:     { label: 'Difícil',  icon: 'sentiment_very_dissatisfied', color: '#f44336' },
+    max:      { label: 'Máximo',   icon: 'local_fire_department',       color: '#9c27b0' },
   };
 
   exercises = signal<Exercise[]>([

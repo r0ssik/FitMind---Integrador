@@ -82,8 +82,8 @@ export class AdminUsers {
   }
 
   actionIcon(action: string): string {
-    const m: Record<string, string> = { suspend: '⏸️', block: '🚫', delete: '🗑️' };
-    return m[action] ?? '⚠️';
+    const m: Record<string, string> = { suspend: 'pause_circle', block: 'block', delete: 'delete' };
+    return m[action] ?? 'warning';
   }
 
   statusLabel(s: UserStatus): string {

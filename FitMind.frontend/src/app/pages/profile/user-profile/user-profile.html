@@ -73,7 +73,7 @@
         <div style="margin-top:14px">
           @for (act of p.activity; track act.id) {
             <div class="act-row">
-              <span class="act-icon">{{ act.icon }}</span>
+              <span class="act-icon mi">{{ act.icon }}</span>
               <div class="act-body">
                 <p class="act-text">{{ act.text }}</p>
                 <span class="act-meta">
@@ -92,7 +92,7 @@
           @for (b of p.badges; track b.title) {
             <div class="badge-card" [class.rare]="b.rare">
               @if (b.rare) { <span class="rare-tag mi mi-sm">auto_awesome</span> }
-              <span class="badge-icon">{{ b.icon }}</span>
+              <span class="badge-icon mi mi-lg">{{ b.icon }}</span>
               <span class="badge-title">{{ b.title }}</span>
             </div>
           }

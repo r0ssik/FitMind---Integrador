@@ -55,7 +55,7 @@
         <!-- Header da refeição -->
         <div class="diary-meal-header" (click)="toggleMeal(meal.id)">
           <div class="diary-meal-left">
-            <span class="diary-meal-icon">{{ meal.icon }}</span>
+            <span class="diary-meal-icon mi">{{ meal.icon }}</span>
             <div>
               <span class="diary-meal-name">{{ meal.name }}</span>
               <span class="diary-meal-time">{{ meal.time }}</span>
@@ -157,11 +157,11 @@
         <h3 class="modal-title">Adicionar alimento</h3>
         <div class="modal-add-actions">
           <button class="modal-action-btn" (click)="goImageAnalysis()">
-            <span>📷</span>
+            <span class="mi">photo_camera</span>
             <span>Analisar por foto</span>
           </button>
           <button class="modal-action-btn" (click)="goManualMeal()">
-            <span>✏️</span>
+            <span class="mi">edit</span>
             <span>Adicionar manualmente</span>
           </button>
         </div>

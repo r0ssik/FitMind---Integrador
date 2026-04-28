@@ -1,6 +1,6 @@
 <div class="page-layout">
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">←</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Gerar Treino com IA</h1>
     <div style="width: 40px"></div>
   </header>
@@ -10,7 +10,7 @@
     @if (!generated()) {
       <!-- Formulário -->
       <div class="ai-banner">
-        <span class="ai-icon">🤖</span>
+        <span class="ai-icon mi mi-lg">smart_toy</span>
         <div>
           <strong>Treino personalizado por IA</strong>
           <p>Preencha seus dados e a IA cria um plano sob medida para você.</p>
@@ -53,7 +53,7 @@
                 [class.selected]="form.value.location === loc.value"
                 (click)="form.patchValue({location: loc.value})"
               >
-                <div class="card-icon">{{ loc.icon }}</div>
+                <div class="card-icon mi mi-lg">{{ loc.icon }}</div>
                 <div class="card-label">{{ loc.label }}</div>
               </label>
             }
@@ -92,7 +92,7 @@
           @if (loading()) {
             <span class="spinner"></span> Gerando seu plano...
           } @else {
-            🤖 Gerar plano personalizado
+            <span class="mi mi-sm">smart_toy</span> Gerar plano personalizado
           }
         </button>
       </form>
@@ -101,7 +101,7 @@
     <!-- Resultado gerado -->
     @if (generated() && generatedPlan()) {
       <div class="success-banner">
-        ✅ Plano gerado com sucesso pela IA!
+        <span class="mi mi-sm">check_circle</span> Plano gerado com sucesso pela IA!
       </div>
 
       @for (day of generatedPlan()!; track day.day) {
@@ -116,7 +116,10 @@
                 <div class="ex-info">
                   <span class="ex-name">{{ ex.name }}</span>
                   <span class="ex-detail">{{ ex.sets }}x {{ ex.reps }} · Descanso: {{ ex.rest }}</span>
-                  <span class="ex-tip">💡 {{ ex.tip }}</span>
+                  <span class="ex-tip">
+                    <span class="mi mi-sm" style="color:var(--warning)">lightbulb</span>
+                    {{ ex.tip }}
+                  </span>
                 </div>
               </div>
             }
@@ -125,8 +128,12 @@
       }
 
       <div class="result-actions">
-        <button class="btn btn-outline" (click)="regenerate()">🔄 Regerar</button>
-        <button class="btn btn-primary" (click)="savePlan()">✅ Salvar plano</button>
+        <button class="btn btn-outline" (click)="regenerate()">
+          <span class="mi mi-sm">refresh</span> Regerar
+        </button>
+        <button class="btn btn-primary" (click)="savePlan()">
+          <span class="mi mi-sm">save</span> Salvar plano
+        </button>
       </div>
     }
 

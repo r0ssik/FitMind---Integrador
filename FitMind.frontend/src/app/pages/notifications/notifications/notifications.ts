@@ -84,7 +84,7 @@ export class Notifications {
       id: 7,
       type: 'water',
       title: 'Meta de hidratação atingida!',
-      body: 'Você bebeu 8 copos de água hoje. Meta diária concluída! 💧',
+      body: 'Você bebeu 8 copos de água hoje. Meta diária concluída!',
       time: new Date(Date.now() - 1000 * 60 * 60 * 27),
       read: true,
     },
@@ -100,18 +100,18 @@ export class Notifications {
   ]);
 
   filters: { key: NotifCategory; label: string; icon: string }[] = [
-    { key: 'all', label: 'Todas', icon: '🔔' },
-    { key: 'workout', label: 'Treino', icon: '🏋️' },
-    { key: 'diet', label: 'Dieta', icon: '🥗' },
-    { key: 'water', label: 'Água', icon: '💧' },
-    { key: 'challenge', label: 'Desafios', icon: '🏆' },
+    { key: 'all',       label: 'Todas',    icon: 'notifications' },
+    { key: 'workout',   label: 'Treino',   icon: 'fitness_center' },
+    { key: 'diet',      label: 'Dieta',    icon: 'restaurant' },
+    { key: 'water',     label: 'Água',     icon: 'water_drop' },
+    { key: 'challenge', label: 'Desafios', icon: 'emoji_events' },
   ];
 
   typeConfig: Record<string, { icon: string; color: string }> = {
-    workout: { icon: '🏋️', color: '#4caf50' },
-    diet: { icon: '🥗', color: '#ff9800' },
-    water: { icon: '💧', color: '#2196f3' },
-    challenge: { icon: '🏆', color: '#9c27b0' },
+    workout:   { icon: 'fitness_center', color: '#4caf50' },
+    diet:      { icon: 'restaurant',     color: '#ff9800' },
+    water:     { icon: 'water_drop',     color: '#2196f3' },
+    challenge: { icon: 'emoji_events',   color: '#9c27b0' },
   };
 
   constructor(private router: Router) {}

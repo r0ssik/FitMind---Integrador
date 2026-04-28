@@ -35,10 +35,10 @@ export class WorkoutHistory {
   ];
 
   feelingConfig: Record<string, { icon: string; color: string; label: string }> = {
-    great: { icon: '🔥', color: '#4caf50', label: 'Ótimo' },
-    good:  { icon: '💪', color: '#2196f3', label: 'Bom' },
-    ok:    { icon: '😐', color: '#ff9800', label: 'Regular' },
-    bad:   { icon: '😓', color: '#f44336', label: 'Difícil' },
+    great: { icon: 'local_fire_department',      color: '#4caf50', label: 'Ótimo' },
+    good:  { icon: 'fitness_center',             color: '#2196f3', label: 'Bom' },
+    ok:    { icon: 'sentiment_neutral',          color: '#ff9800', label: 'Regular' },
+    bad:   { icon: 'sentiment_very_dissatisfied',color: '#f44336', label: 'Difícil' },
   };
 
   records: WorkoutRecord[] = this.generateRecords();

@@ -1,6 +1,6 @@
 <div class="page-layout">
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">←</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Histórico de Treinos</h1>
     <div style="width:40px"></div>
   </header>
@@ -13,7 +13,7 @@
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
-      <span class="stat-val">{{ stats.streak }}🔥</span>
+      <span class="stat-val">{{ stats.streak }} <span class="mi mi-sm" style="color:var(--warning)">local_fire_department</span></span>
       <span class="stat-lbl">Sequência</span>
     </div>
     <div class="stat-divider"></div>
@@ -61,7 +61,9 @@
         }
       </div>
       @if (selectedDate()) {
-        <button class="clear-filter-btn" (click)="selectedDate.set(null)">✕ Limpar filtro de data</button>
+        <button class="clear-filter-btn" (click)="selectedDate.set(null)">
+          <span class="mi mi-sm">close</span> Limpar filtro de data
+        </button>
       }
     </div>
 
@@ -79,7 +81,7 @@
     <!-- Lista de treinos -->
     @if (filtered.length === 0) {
       <div class="empty-state">
-        <div class="empty-icon">📭</div>
+        <span class="mi mi-xl" style="color:var(--text-hint)">inbox</span>
         <p>Nenhum treino encontrado</p>
       </div>
     }
@@ -93,8 +95,8 @@
         <div class="rec-body">
           <span class="rec-name">{{ rec.name }}</span>
           <div class="rec-meta">
-            <span>⏱ {{ rec.duration }}min</span>
-            <span>💪 {{ rec.setsTotal }} séries</span>
+            <span><span class="mi mi-sm">timer</span> {{ rec.duration }}min</span>
+            <span><span class="mi mi-sm">fitness_center</span> {{ rec.setsTotal }} séries</span>
           </div>
         </div>
         <div
@@ -102,7 +104,7 @@
           [style.background]="feelingConfig[rec.feeling].color + '20'"
           [title]="feelingConfig[rec.feeling].label"
         >
-          {{ feelingConfig[rec.feeling].icon }}
+          <span class="mi mi-sm">{{ feelingConfig[rec.feeling].icon }}</span>
         </div>
       </div>
     }

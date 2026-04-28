@@ -43,16 +43,16 @@ export class History {
   tab = signal<HistoryTab>('workouts');
 
   workouts: WorkoutRecord[] = [
-    { id:1,  date:'26/04/2025', name:'Perna A',        duration:65, exercises:7, feeling:'😊' },
-    { id:2,  date:'24/04/2025', name:'Peito & Tríceps', duration:72, exercises:8, feeling:'💪' },
-    { id:3,  date:'22/04/2025', name:'Costas & Bíceps', duration:68, exercises:7, feeling:'😊' },
-    { id:4,  date:'20/04/2025', name:'Ombros',          duration:55, exercises:6, feeling:'😐' },
-    { id:5,  date:'18/04/2025', name:'Perna B',         duration:80, exercises:8, feeling:'🔥' },
-    { id:6,  date:'16/04/2025', name:'Cardio',          duration:40, exercises:1, feeling:'😊' },
-    { id:7,  date:'14/04/2025', name:'Peito & Tríceps', duration:70, exercises:8, feeling:'💪' },
-    { id:8,  date:'12/04/2025', name:'Costas & Bíceps', duration:65, exercises:7, feeling:'😊' },
-    { id:9,  date:'10/04/2025', name:'Perna A',         duration:75, exercises:7, feeling:'🔥' },
-    { id:10, date:'08/04/2025', name:'Ombros',          duration:52, exercises:6, feeling:'😐' },
+    { id:1,  date:'26/04/2025', name:'Perna A',         duration:65, exercises:7, feeling:'sentiment_satisfied' },
+    { id:2,  date:'24/04/2025', name:'Peito & Tríceps', duration:72, exercises:8, feeling:'fitness_center' },
+    { id:3,  date:'22/04/2025', name:'Costas & Bíceps', duration:68, exercises:7, feeling:'sentiment_satisfied' },
+    { id:4,  date:'20/04/2025', name:'Ombros',          duration:55, exercises:6, feeling:'sentiment_neutral' },
+    { id:5,  date:'18/04/2025', name:'Perna B',         duration:80, exercises:8, feeling:'local_fire_department' },
+    { id:6,  date:'16/04/2025', name:'Cardio',          duration:40, exercises:1, feeling:'sentiment_satisfied' },
+    { id:7,  date:'14/04/2025', name:'Peito & Tríceps', duration:70, exercises:8, feeling:'fitness_center' },
+    { id:8,  date:'12/04/2025', name:'Costas & Bíceps', duration:65, exercises:7, feeling:'sentiment_satisfied' },
+    { id:9,  date:'10/04/2025', name:'Perna A',         duration:75, exercises:7, feeling:'local_fire_department' },
+    { id:10, date:'08/04/2025', name:'Ombros',          duration:52, exercises:6, feeling:'sentiment_neutral' },
   ];
 
   diet: DietRecord[] = [
@@ -67,14 +67,14 @@ export class History {
   ];
 
   achievements: AchievRecord[] = [
-    { id:1, date:'15/04/2025', icon:'🥦', title:'Verde Todo Dia',       rare:false },
-    { id:2, date:'04/04/2025', icon:'🌋', title:'Sequência de 30 dias', rare:true  },
-    { id:3, date:'22/03/2025', icon:'⏱️', title:'Maratonista',          rare:false },
-    { id:4, date:'10/03/2025', icon:'🌅', title:'Madrugador',           rare:false },
-    { id:5, date:'20/02/2025', icon:'🥗', title:'Dieta Limpa',          rare:false },
-    { id:6, date:'15/02/2025', icon:'💪', title:'10 Treinos',           rare:false },
-    { id:7, date:'12/02/2025', icon:'🔥', title:'Sequência de 7 dias',  rare:false },
-    { id:8, date:'01/02/2025', icon:'🏋️', title:'Primeiro Treino',      rare:false },
+    { id:1, date:'15/04/2025', icon:'eco',                   title:'Verde Todo Dia',       rare:false },
+    { id:2, date:'04/04/2025', icon:'volcano',               title:'Sequência de 30 dias', rare:true  },
+    { id:3, date:'22/03/2025', icon:'timer',                 title:'Maratonista',          rare:false },
+    { id:4, date:'10/03/2025', icon:'wb_twilight',           title:'Madrugador',           rare:false },
+    { id:5, date:'20/02/2025', icon:'restaurant',            title:'Dieta Limpa',          rare:false },
+    { id:6, date:'15/02/2025', icon:'fitness_center',        title:'10 Treinos',           rare:false },
+    { id:7, date:'12/02/2025', icon:'local_fire_department', title:'Sequência de 7 dias',  rare:false },
+    { id:8, date:'01/02/2025', icon:'fitness_center',        title:'Primeiro Treino',      rare:false },
   ];
 
   // ── Stats ─────────────────────────────────────────────────────────────────

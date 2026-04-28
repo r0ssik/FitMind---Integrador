@@ -22,7 +22,7 @@
         [class.active]="activeFilter() === f.key"
         (click)="activeFilter.set(f.key)"
       >
-        {{ f.icon }} {{ f.label }}
+        <span class="mi mi-sm">{{ f.icon }}</span> {{ f.label }}
       </button>
     }
   </div>
@@ -38,7 +38,7 @@
     @for (notif of filtered; track notif.id) {
       <div class="notif-card" [class.unread]="!notif.read" (click)="markRead(notif.id)">
         <div class="notif-icon" [style.background]="typeConfig[notif.type].color + '20'">
-          {{ typeConfig[notif.type].icon }}
+          <span class="mi">{{ typeConfig[notif.type].icon }}</span>
         </div>
         <div class="notif-body">
           <div class="notif-header">
