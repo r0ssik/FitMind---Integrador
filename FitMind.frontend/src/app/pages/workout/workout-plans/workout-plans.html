@@ -1,8 +1,8 @@
 <div class="page-layout">
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">←</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Planos de Treino</h1>
-    <button class="generate-btn" (click)="goGenerate()">+ IA</button>
+    <button class="generate-btn" (click)="goGenerate()" title="Gerar com IA"><span class="mi">auto_awesome</span></button>
   </header>
 
   <!-- Tabs -->
@@ -61,10 +61,10 @@
       }
 
       <button class="btn-outline-green" (click)="goDetail()">
-        📋 Ver treino completo
+        <span class="mi mi-sm">assignment</span> Ver treino completo
       </button>
       <button class="btn-outline-green" (click)="goGenerate()">
-        🤖 Gerar novo plano com IA
+        <span class="mi mi-sm">auto_awesome</span> Gerar novo plano com IA
       </button>
     }
 
@@ -91,7 +91,7 @@
         </div>
       }
       <button class="btn-outline-green" (click)="goWorkoutHistory()">
-        🗓️ Ver histórico de sessões
+        <span class="mi mi-sm">calendar_month</span> Ver histórico de sessões
       </button>
     }
 

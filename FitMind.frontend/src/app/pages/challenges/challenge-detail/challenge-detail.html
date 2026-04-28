@@ -1,9 +1,9 @@
 <div class="page-layout">
 
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">&#8592;</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>{{ challenge()?.title ?? 'Desafio' }}</h1>
-    <button class="invite-btn" (click)="showInvite.set(true)" title="Convidar">👥</button>
+    <button class="invite-btn" (click)="showInvite.set(true)" title="Convidar"><span class="mi">person_add</span></button>
   </header>
 
   @if (challenge(); as c) {
@@ -33,16 +33,22 @@
         </div>
         <div class="mp-sub">
           <span>{{ myPct() | number:'1.0-0':'pt' }}% concluído</span>
-          <span>🏅 {{ myRank() }}º lugar</span>
+          <span><span class="mi mi-sm">military_tech</span> {{ myRank() }}º lugar</span>
         </div>
       </div>
     }
 
     <!-- ── Tabs ───────────────────────────────────────────────────────────────── -->
     <div class="tabs">
-      <button class="tab" [class.active]="activeTab() === 'ranking'"      (click)="activeTab.set('ranking')">🏆 Ranking</button>
-      <button class="tab" [class.active]="activeTab() === 'progress'"     (click)="activeTab.set('progress')">📈 Progresso</button>
-      <button class="tab" [class.active]="activeTab() === 'participants'" (click)="activeTab.set('participants')">👥 Participantes</button>
+      <button class="tab" [class.active]="activeTab() === 'ranking'"      (click)="activeTab.set('ranking')">
+        <span class="mi mi-sm">emoji_events</span> Ranking
+      </button>
+      <button class="tab" [class.active]="activeTab() === 'progress'"     (click)="activeTab.set('progress')">
+        <span class="mi mi-sm">show_chart</span> Progresso
+      </button>
+      <button class="tab" [class.active]="activeTab() === 'participants'" (click)="activeTab.set('participants')">
+        <span class="mi mi-sm">group</span> Participantes
+      </button>
     </div>
 
     <main class="page-content" style="padding-top:14px">
@@ -86,7 +92,6 @@
             </div>
             <span class="chart-badge badge-up">{{ myProgress()?.current ?? 0 }} {{ c.unit }}</span>
           </div>
-          <!-- Mini SVG bar chart -->
           <svg viewBox="0 0 320 100" class="chart-svg">
             @for (bar of miniBarRects(); track $index; let i = $index) {
               <rect [attr.x]="bar.x" [attr.y]="bar.y"
@@ -105,22 +110,22 @@
 
         <div class="prog-stats" style="margin-bottom:0">
           <div class="prog-stat pos">
-            <span class="ps-icon">🔥</span>
+            <span class="ps-icon mi">local_fire_department</span>
             <span class="ps-val">{{ myProgress()?.current ?? 0 }}</span>
             <span class="ps-lbl">{{ c.unit }} feitos</span>
           </div>
           <div class="prog-stat">
-            <span class="ps-icon">🎯</span>
+            <span class="ps-icon mi">track_changes</span>
             <span class="ps-val">{{ c.goal - (myProgress()?.current ?? 0) }}</span>
             <span class="ps-lbl">restantes</span>
           </div>
           <div class="prog-stat">
-            <span class="ps-icon">📅</span>
+            <span class="ps-icon mi">calendar_month</span>
             <span class="ps-val">{{ c.daysLeft }}</span>
             <span class="ps-lbl">dias left</span>
           </div>
           <div class="prog-stat pos">
-            <span class="ps-icon">🏅</span>
+            <span class="ps-icon mi">military_tech</span>
             <span class="ps-val">{{ myRank() }}º</span>
             <span class="ps-lbl">posição</span>
           </div>
@@ -147,7 +152,7 @@
 
         @if (c.type === 'group') {
           <button class="btn btn-outline" style="margin-top:12px" (click)="showInvite.set(true)">
-            ➕ Convidar participantes
+            <span class="mi mi-sm">person_add</span> Convidar participantes
           </button>
         }
       }
@@ -155,7 +160,10 @@
     </main>
 
   } @else {
-    <div class="empty-state"><div class="empty-icon">🏆</div><p>Desafio não encontrado.</p></div>
+    <div class="empty-state">
+      <span class="mi mi-xl" style="color:var(--text-hint)">emoji_events</span>
+      <p>Desafio não encontrado.</p>
+    </div>
   }
 
   <!-- ── Invite modal ───────────────────────────────────────────────────────── -->
@@ -170,7 +178,7 @@
         <div class="invite-link-row">
           <span class="invite-link">{{ inviteLink() }}</span>
           <button class="btn btn-primary btn-sm" style="width:auto" (click)="copyInvite()">
-            {{ linkCopied() ? '✅' : '📋' }}
+            <span class="mi mi-sm">{{ linkCopied() ? 'check' : 'content_copy' }}</span>
           </button>
         </div>
         @if (linkCopied()) {

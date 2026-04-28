@@ -1,7 +1,7 @@
 <div class="page-layout">
 
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">&#8592;</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Criar Desafio</h1>
     <span style="width:40px"></span>
   </header>
@@ -10,7 +10,7 @@
 
     @if (created()) {
       <div class="create-success">
-        <span class="cs-icon">🏆</span>
+        <span class="cs-icon mi mi-xl">emoji_events</span>
         <h2>Desafio criado!</h2>
         <p>Redirecionando para o desafio...</p>
       </div>
@@ -18,7 +18,7 @@
 
       <!-- AI banner -->
       <div class="ai-banner">
-        <span class="ai-icon">🏆</span>
+        <span class="ai-icon mi mi-lg">emoji_events</span>
         <div>
           <strong>Criar novo desafio</strong>
           <p>Defina uma meta, prazo e convide amigos para competir!</p>
@@ -77,20 +77,20 @@
             <input type="radio" value="individual"
                    [checked]="type() === 'individual'"
                    (change)="type.set('individual')">
-            <div class="card-icon">🧑</div>
+            <div class="card-icon mi mi-lg">person</div>
             <div class="card-label">Individual</div>
           </label>
           <label class="radio-card" [class.selected]="type() === 'group'">
             <input type="radio" value="group"
                    [checked]="type() === 'group'"
                    (change)="type.set('group')">
-            <div class="card-icon">👥</div>
+            <div class="card-icon mi mi-lg">group</div>
             <div class="card-label">Grupo</div>
           </label>
         </div>
       </div>
 
-      <!-- Tamanho do grupo (somente se grupo) -->
+      <!-- Tamanho do grupo -->
       @if (type() === 'group') {
         <div class="form-group">
           <label>Limite de participantes
@@ -112,7 +112,7 @@
         </div>
 
         <div class="alert alert-info" style="margin-bottom:16px">
-          💡 Após criar, você poderá convidar amigos para participar do grupo.
+          <span class="mi mi-sm">lightbulb</span> Após criar, você poderá convidar amigos para participar do grupo.
         </div>
       }
 
@@ -120,13 +120,15 @@
       @if (canSubmit()) {
         <div class="challenge-preview">
           <div class="cp-header">
-            <span class="cp-icon">{{ type() === 'group' ? '👥' : '🧑' }}</span>
+            <span class="cp-icon mi mi-lg">{{ type() === 'group' ? 'group' : 'person' }}</span>
             <div>
               <strong class="cp-title">{{ title() }}</strong>
               <span class="cp-meta">Meta: {{ goal() }} {{ unit() }}</span>
             </div>
           </div>
-          <div class="cp-deadline">📅 Prazo: {{ deadline() | date:'dd/MM/yyyy' }}</div>
+          <div class="cp-deadline">
+            <span class="mi mi-sm">event</span> Prazo: {{ deadline() | date:'dd/MM/yyyy' }}
+          </div>
         </div>
       }
 
@@ -134,7 +136,7 @@
               [disabled]="!canSubmit() || creating()"
               (click)="submit()">
         @if (creating()) { <span class="spinner"></span> Criando... }
-        @else { 🏆 Criar desafio }
+        @else { <span class="mi mi-sm">emoji_events</span> Criar desafio }
       </button>
 
     }

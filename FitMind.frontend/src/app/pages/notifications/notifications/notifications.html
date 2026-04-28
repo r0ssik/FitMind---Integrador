@@ -1,6 +1,6 @@
 <div class="page-layout">
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">←</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <div class="header-center">
       <h1>Notificações</h1>
       @if (unreadCount > 0) {
@@ -30,7 +30,7 @@
   <main class="page-content">
     @if (filtered.length === 0) {
       <div class="empty-state">
-        <div class="empty-icon">🔕</div>
+        <span class="mi mi-xl" style="color:var(--text-hint)">notifications_off</span>
         <p>Nenhuma notificação aqui</p>
       </div>
     }
@@ -48,11 +48,13 @@
           <p class="notif-text">{{ notif.body }}</p>
           @if (notif.action) {
             <button class="notif-action" (click)="$event.stopPropagation(); navigate(notif)">
-              {{ notif.action }} →
+              {{ notif.action }} <span class="mi mi-sm">arrow_forward</span>
             </button>
           }
         </div>
-        <button class="dismiss-btn" (click)="$event.stopPropagation(); dismiss(notif.id)" title="Dispensar">×</button>
+        <button class="dismiss-btn" (click)="$event.stopPropagation(); dismiss(notif.id)" title="Dispensar">
+          <span class="mi mi-sm">close</span>
+        </button>
       </div>
     }
   </main>

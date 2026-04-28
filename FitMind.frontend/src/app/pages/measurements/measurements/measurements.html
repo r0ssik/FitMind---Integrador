@@ -2,9 +2,9 @@
 
   <!-- Header -->
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">&#8592;</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Medidas Corporais</h1>
-    <button class="add-btn" (click)="openForm()">＋</button>
+    <button class="add-btn" (click)="openForm()"><span class="mi">add</span></button>
   </header>
 
   <main class="page-content">
@@ -19,9 +19,8 @@
 
         <div class="snap-grid">
 
-          <!-- Peso -->
           <div class="snap-item">
-            <span class="snap-icon">⚖️</span>
+            <span class="snap-icon mi">monitor_weight</span>
             <span class="snap-val">{{ latest()!.weight ?? '—' }} <small>kg</small></span>
             <span class="snap-name">Peso</span>
             @if (diff('weight')) {
@@ -29,9 +28,8 @@
             }
           </div>
 
-          <!-- BF -->
           <div class="snap-item">
-            <span class="snap-icon">🔬</span>
+            <span class="snap-icon mi">science</span>
             <span class="snap-val">{{ latest()!.bf ?? '—' }} <small>%</small></span>
             <span class="snap-name">Gordura</span>
             @if (latest()!.bf) {
@@ -39,9 +37,8 @@
             }
           </div>
 
-          <!-- Cintura -->
           <div class="snap-item">
-            <span class="snap-icon">📏</span>
+            <span class="snap-icon mi">straighten</span>
             <span class="snap-val">{{ latest()!.waist ?? '—' }} <small>cm</small></span>
             <span class="snap-name">Cintura</span>
             @if (diff('waist')) {
@@ -49,9 +46,8 @@
             }
           </div>
 
-          <!-- Quadril -->
           <div class="snap-item">
-            <span class="snap-icon">📐</span>
+            <span class="snap-icon mi">straighten</span>
             <span class="snap-val">{{ latest()!.hip ?? '—' }} <small>cm</small></span>
             <span class="snap-name">Quadril</span>
             @if (diff('hip')) {
@@ -59,9 +55,8 @@
             }
           </div>
 
-          <!-- Peito -->
           <div class="snap-item">
-            <span class="snap-icon">💪</span>
+            <span class="snap-icon mi">accessibility</span>
             <span class="snap-val">{{ latest()!.chest ?? '—' }} <small>cm</small></span>
             <span class="snap-name">Peito</span>
             @if (diff('chest')) {
@@ -69,9 +64,8 @@
             }
           </div>
 
-          <!-- Braço -->
           <div class="snap-item">
-            <span class="snap-icon">🦾</span>
+            <span class="snap-icon mi">sports_gymnastics</span>
             <span class="snap-val">{{ latest()!.arm ?? '—' }} <small>cm</small></span>
             <span class="snap-name">Braço</span>
             @if (diff('arm')) {
@@ -79,9 +73,8 @@
             }
           </div>
 
-          <!-- Coxa -->
           <div class="snap-item">
-            <span class="snap-icon">🦵</span>
+            <span class="snap-icon mi">directions_walk</span>
             <span class="snap-val">{{ latest()!.thigh ?? '—' }} <small>cm</small></span>
             <span class="snap-name">Coxa</span>
             @if (diff('thigh')) {
@@ -103,9 +96,9 @@
           <span class="meas-month">{{ rec.date.slice(3,10) }}</span>
         </div>
         <div class="meas-body">
-          @if (rec.weight) { <span class="meas-chip">⚖️ {{ rec.weight }} kg</span> }
-          @if (rec.bf)     { <span class="meas-chip">🔬 {{ rec.bf }}%</span> }
-          @if (rec.waist)  { <span class="meas-chip">📏 C:{{ rec.waist }}</span> }
+          @if (rec.weight) { <span class="meas-chip">{{ rec.weight }} kg</span> }
+          @if (rec.bf)     { <span class="meas-chip">{{ rec.bf }}%</span> }
+          @if (rec.waist)  { <span class="meas-chip">C:{{ rec.waist }}</span> }
           @if (rec.hip)    { <span class="meas-chip">Q:{{ rec.hip }}</span> }
           @if (rec.chest)  { <span class="meas-chip">P:{{ rec.chest }}</span> }
           @if (rec.arm)    { <span class="meas-chip">B:{{ rec.arm }}</span> }
@@ -116,7 +109,7 @@
 
     @if (!records().length) {
       <div class="empty-state">
-        <div class="empty-icon">📏</div>
+        <span class="mi mi-xl" style="color:var(--text-hint)">straighten</span>
         <p>Nenhuma medida registrada ainda.</p>
         <button class="btn btn-primary btn-sm" style="width:auto;margin-top:12px" (click)="openForm()">
           Registrar agora
@@ -134,7 +127,7 @@
         <p class="modal-title">Nova medição</p>
 
         @if (saved()) {
-          <div class="alert alert-success">✅ Medição registrada com sucesso!</div>
+          <div class="alert alert-success">Medição registrada com sucesso!</div>
         }
 
         <div class="meas-form-grid">

@@ -2,11 +2,11 @@
 
   <!-- Header -->
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">&#8592;</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Feed Social</h1>
     <div style="display:flex;gap:6px">
-      <button class="new-post-btn" (click)="goCreateChallenge()" title="Criar desafio">🏆</button>
-      <button class="new-post-btn" (click)="showNewPost.set(true)" title="Novo post">✏️</button>
+      <button class="new-post-btn" (click)="goCreateChallenge()" title="Criar desafio"><span class="mi">emoji_events</span></button>
+      <button class="new-post-btn" (click)="showNewPost.set(true)" title="Novo post"><span class="mi">edit</span></button>
     </div>
   </header>
 
@@ -40,15 +40,15 @@
         <!-- Actions -->
         <div class="post-actions">
           <button class="action-btn" [class.liked]="post.liked" (click)="toggleLike(post)">
-            <span>{{ post.liked ? '❤️' : '🤍' }}</span>
+            <span class="mi mi-sm" [class.mi-fill]="post.liked">favorite</span>
             <span>{{ post.likes }}</span>
           </button>
           <button class="action-btn" (click)="toggleComments(post)">
-            <span>💬</span>
+            <span class="mi mi-sm">chat_bubble_outline</span>
             <span>{{ post.comments.length }}</span>
           </button>
           <button class="action-btn">
-            <span>↗️</span>
+            <span class="mi mi-sm">share</span>
             <span>Compartilhar</span>
           </button>
         </div>
@@ -82,7 +82,7 @@
                      (keydown.enter)="submitComment(post)">
               <button class="comment-send" (click)="submitComment(post)"
                       [disabled]="!(newComment()[post.id] ?? '').trim()">
-                ➤
+                <span class="mi mi-sm">send</span>
               </button>
             </div>
 
@@ -94,7 +94,7 @@
 
     @if (!filtered().length) {
       <div class="empty-state">
-        <div class="empty-icon">👥</div>
+        <span class="mi mi-xl" style="color:var(--text-hint)">group</span>
         <p>Nenhum post aqui ainda.</p>
       </div>
     }

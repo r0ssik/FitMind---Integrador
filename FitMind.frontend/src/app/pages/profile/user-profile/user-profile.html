@@ -1,7 +1,7 @@
 <div class="page-layout">
 
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">&#8592;</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Perfil</h1>
     <span style="width:40px"></span>
   </header>
@@ -29,9 +29,12 @@
         <div style="display:flex; gap:10px; margin-bottom:16px">
           <button class="btn" [class.btn-primary]="!p.isFollowing" [class.btn-outline]="p.isFollowing"
                   (click)="toggleFollow()">
-            {{ p.isFollowing ? '✓ Seguindo' : '+ Seguir' }}
+            @if (p.isFollowing) { <span class="mi mi-sm">check</span> Seguindo }
+            @else { <span class="mi mi-sm">person_add</span> Seguir }
           </button>
-          <button class="btn btn-outline">💬 Mensagem</button>
+          <button class="btn btn-outline">
+            <span class="mi mi-sm">chat_bubble_outline</span> Mensagem
+          </button>
         </div>
       }
 
@@ -54,7 +57,7 @@
         <div class="pstat-div"></div>
         <div class="pstat">
           <span class="pstat-val">{{ p.streak }}</span>
-          <span class="pstat-lbl">🔥 Dias</span>
+          <span class="pstat-lbl"><span class="mi mi-sm" style="color:var(--warning)">local_fire_department</span> Dias</span>
         </div>
       </div>
 
@@ -88,7 +91,7 @@
         <div class="badges-grid" style="margin-top:14px">
           @for (b of p.badges; track b.title) {
             <div class="badge-card" [class.rare]="b.rare">
-              @if (b.rare) { <span class="rare-tag">✨</span> }
+              @if (b.rare) { <span class="rare-tag mi mi-sm">auto_awesome</span> }
               <span class="badge-icon">{{ b.icon }}</span>
               <span class="badge-title">{{ b.title }}</span>
             </div>
@@ -100,7 +103,12 @@
       @if (activeTab() === 'stats') {
         <div class="stats-cards" style="margin-top:14px">
           <div class="sc"><span class="sc-val">{{ p.workouts }}</span><span class="sc-lbl">Treinos totais</span></div>
-          <div class="sc"><span class="sc-val">{{ p.streak }}🔥</span><span class="sc-lbl">Sequência atual</span></div>
+          <div class="sc">
+            <span class="sc-val" style="display:flex;align-items:center;gap:4px">
+              {{ p.streak }}<span class="mi mi-sm" style="color:var(--warning)">local_fire_department</span>
+            </span>
+            <span class="sc-lbl">Sequência atual</span>
+          </div>
           <div class="sc"><span class="sc-val">{{ p.badges.length }}</span><span class="sc-lbl">Conquistas</span></div>
           <div class="sc"><span class="sc-val">{{ p.followers }}</span><span class="sc-lbl">Seguidores</span></div>
         </div>
@@ -110,7 +118,7 @@
 
   } @else {
     <div class="empty-state">
-      <div class="empty-icon">👤</div>
+      <span class="mi mi-xl" style="color:var(--text-hint)">person</span>
       <p>Perfil não encontrado.</p>
     </div>
   }
