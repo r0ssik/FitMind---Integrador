@@ -29,10 +29,10 @@ export class DietPlanGenerator {
   plan = signal<DietPlan | null>(null);
 
   goals = [
-    { value: 'emagrecer',    label: 'Emagrecer',     icon: '🔥' },
-    { value: 'hipertrofia',  label: 'Hipertrofia',   icon: '💪' },
-    { value: 'manutencao',   label: 'Manutenção',    icon: '⚖️' },
-    { value: 'saude',        label: 'Saúde Geral',   icon: '❤️' },
+    { value: 'emagrecer',   label: 'Emagrecer',   icon: 'local_fire_department' },
+    { value: 'hipertrofia', label: 'Hipertrofia', icon: 'fitness_center' },
+    { value: 'manutencao',  label: 'Manutenção',  icon: 'balance' },
+    { value: 'saude',       label: 'Saúde Geral', icon: 'favorite' },
   ];
 
   restrictions = [
@@ -46,9 +46,9 @@ export class DietPlanGenerator {
   ];
 
   budgets = [
-    { value: 'low',    label: 'Econômico',  sub: 'até R$300/mês',  icon: '💵' },
-    { value: 'medium', label: 'Moderado',   sub: 'R$300–600/mês',  icon: '💳' },
-    { value: 'high',   label: 'Sem limite', sub: 'acima de R$600', icon: '💎' },
+    { value: 'low',    label: 'Econômico',  sub: 'até R$300/mês',  icon: 'payments' },
+    { value: 'medium', label: 'Moderado',   sub: 'R$300–600/mês',  icon: 'credit_card' },
+    { value: 'high',   label: 'Sem limite', sub: 'acima de R$600', icon: 'diamond' },
   ];
 
   selectedRestrictions = signal<string[]>(['Nenhuma']);

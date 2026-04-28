@@ -19,10 +19,10 @@ export class Register {
   step3Form: FormGroup;
 
   goals = [
-    { value: 'emagrecer', label: 'Emagrecer', icon: '🔥' },
-    { value: 'hipertrofia', label: 'Hipertrofia', icon: '💪' },
-    { value: 'saude', label: 'Saúde Geral', icon: '❤️' },
-    { value: 'condicionamento', label: 'Condicionamento', icon: '🏃' },
+    { value: 'emagrecer',       label: 'Emagrecer',       icon: 'local_fire_department' },
+    { value: 'hipertrofia',     label: 'Hipertrofia',     icon: 'fitness_center' },
+    { value: 'saude',           label: 'Saúde Geral',     icon: 'favorite' },
+    { value: 'condicionamento', label: 'Condicionamento', icon: 'directions_run' },
   ];
 
   limitations = [

@@ -1,6 +1,6 @@
 <div class="page-layout">
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">←</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Análise por Imagem IA</h1>
     <div style="width:40px"></div>
   </header>
@@ -10,7 +10,7 @@
     <!-- Step: upload -->
     @if (step() === 'upload') {
       <div class="ai-banner">
-        <span class="ai-icon">📸</span>
+        <span class="ai-icon mi mi-lg">photo_camera</span>
         <div>
           <strong>IA Nutricional</strong>
           <p>Envie uma foto da sua refeição e a IA detecta os alimentos e estima os macros automaticamente.</p>
@@ -33,7 +33,7 @@
           style="display:none"
           (change)="onFileSelected($event)"
         />
-        <div class="drop-icon">🖼️</div>
+        <span class="drop-icon mi" style="font-size:48px">image</span>
         <p class="drop-title">Arraste uma foto aqui</p>
         <p class="drop-sub">ou clique para selecionar</p>
         <span class="drop-formats">PNG, JPG, WEBP — até 10MB</span>
@@ -52,16 +52,16 @@
           style="display:none"
           (change)="onFileSelected($event)"
         />
-        📷 Tirar foto com a câmera
+        <span class="mi mi-sm">photo_camera</span> Tirar foto com a câmera
       </label>
 
       <div class="upload-tips">
         <p class="tips-title">Dicas para melhor resultado</p>
         <ul>
-          <li>📍 Fotografe de cima, mostrando todos os alimentos</li>
-          <li>💡 Use boa iluminação — evite sombras</li>
-          <li>🍽️ Prefira fundo branco ou neutro</li>
-          <li>🔍 Mantenha os alimentos separados e visíveis</li>
+          <li><span class="mi mi-sm">location_on</span> Fotografe de cima, mostrando todos os alimentos</li>
+          <li><span class="mi mi-sm">lightbulb</span> Use boa iluminação — evite sombras</li>
+          <li><span class="mi mi-sm">dinner_dining</span> Prefira fundo branco ou neutro</li>
+          <li><span class="mi mi-sm">search</span> Mantenha os alimentos separados e visíveis</li>
         </ul>
       </div>
     }
@@ -80,10 +80,10 @@
           <p class="analyzing-title">Analisando sua refeição...</p>
           <p class="analyzing-sub">A IA está identificando os alimentos e calculando os macronutrientes</p>
           <div class="analyzing-steps">
-            <span class="astep done">✓ Imagem recebida</span>
-            <span class="astep done">✓ Processando pixels</span>
-            <span class="astep active">⟳ Detectando alimentos</span>
-            <span class="astep">○ Calculando macros</span>
+            <span class="astep done"><span class="mi mi-sm">check</span> Imagem recebida</span>
+            <span class="astep done"><span class="mi mi-sm">check</span> Processando pixels</span>
+            <span class="astep active"><span class="mi mi-sm">sync</span> Detectando alimentos</span>
+            <span class="astep"><span class="mi mi-sm">radio_button_unchecked</span> Calculando macros</span>
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@
 
       @if (savedToCart()) {
         <div class="alert alert-success" style="margin-bottom:12px">
-          ✅ Refeição salva no diário! Redirecionando...
+          <span class="mi mi-sm">check_circle</span> Refeição salva no diário! Redirecionando...
         </div>
       }
 
@@ -102,7 +102,9 @@
       @if (previewUrl()) {
         <div class="result-photo">
           <img [src]="previewUrl()!" class="result-img" alt="Foto da refeição" />
-          <div class="result-photo-badge">🤖 {{ detectedFoods().length }} itens detectados</div>
+          <div class="result-photo-badge">
+            <span class="mi mi-sm">smart_toy</span> {{ detectedFoods().length }} itens detectados
+          </div>
         </div>
       }
 
@@ -146,9 +148,11 @@
             </div>
             <div class="detected-actions">
               <button class="det-btn edit" (click)="toggleEdit(i)" [title]="food.editing ? 'Confirmar' : 'Editar'">
-                {{ food.editing ? '✓' : '✏️' }}
+                <span class="mi mi-sm">{{ food.editing ? 'check' : 'edit' }}</span>
               </button>
-              <button class="det-btn remove" (click)="removeFood(i)" title="Remover">×</button>
+              <button class="det-btn remove" (click)="removeFood(i)" title="Remover">
+                <span class="mi mi-sm">close</span>
+              </button>
             </div>
           </div>
 
@@ -193,21 +197,26 @@
 
       @if (detectedFoods().length === 0) {
         <div class="empty-state">
-          <div class="empty-icon">🤔</div>
+          <span class="mi mi-xl" style="color:var(--text-hint)">sentiment_neutral</span>
           <p>Todos os itens foram removidos</p>
         </div>
       }
 
       <!-- Ações -->
       <div class="result-actions" style="padding-bottom: 24px">
-        <button class="btn btn-outline" (click)="retake()">📷 Nova foto</button>
+        <button class="btn btn-outline" (click)="retake()">
+          <span class="mi mi-sm">photo_camera</span> Nova foto
+        </button>
         <button
           class="btn btn-primary"
           [disabled]="detectedFoods().length === 0 || savedToCart()"
           (click)="saveToMeal()"
         >
-          @if (savedToCart()) { ✅ Salvo! }
-          @else { Salvar no diário }
+          @if (savedToCart()) {
+            <span class="mi mi-sm">check_circle</span> Salvo!
+          } @else {
+            Salvar no diário
+          }
         </button>
       </div>
     }

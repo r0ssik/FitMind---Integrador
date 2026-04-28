@@ -1,8 +1,8 @@
 <div class="page-layout">
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">←</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Planos de Treino</h1>
-    <button class="generate-btn" (click)="goGenerate()">+ IA</button>
+    <button class="generate-btn" (click)="goGenerate()" title="Gerar com IA"><span class="mi">auto_awesome</span></button>
   </header>
 
   <!-- Tabs -->
@@ -20,12 +20,12 @@
     <!-- Plano Atual -->
     @if (activeTab() === 'current') {
       <div class="plan-header-card">
-        <div class="plan-badge ai">🤖 Gerado por IA</div>
+        <div class="plan-badge ai"><span class="mi mi-sm">smart_toy</span> Gerado por IA</div>
         <h2>{{ currentPlan.name }}</h2>
         <div class="plan-meta">
-          <span>🎯 {{ currentPlan.goal }}</span>
-          <span>📅 {{ currentPlan.daysPerWeek }}x por semana</span>
-          <span>⏱ {{ currentPlan.weeks }} semanas</span>
+          <span><span class="mi mi-sm">gps_fixed</span> {{ currentPlan.goal }}</span>
+          <span><span class="mi mi-sm">calendar_month</span> {{ currentPlan.daysPerWeek }}x por semana</span>
+          <span><span class="mi mi-sm">timer</span> {{ currentPlan.weeks }} semanas</span>
         </div>
         <p class="plan-created">Criado em {{ formatDate(currentPlan.createdAt) }}</p>
       </div>
@@ -61,10 +61,10 @@
       }
 
       <button class="btn-outline-green" (click)="goDetail()">
-        📋 Ver treino completo
+        <span class="mi mi-sm">assignment</span> Ver treino completo
       </button>
       <button class="btn-outline-green" (click)="goGenerate()">
-        🤖 Gerar novo plano com IA
+        <span class="mi mi-sm">auto_awesome</span> Gerar novo plano com IA
       </button>
     }
 
@@ -72,12 +72,12 @@
     @if (activeTab() === 'history') {
       @for (plan of history; track plan.id) {
         <div class="history-card">
-          <div class="plan-badge ai" style="margin-bottom: 8px">🤖 IA</div>
+          <div class="plan-badge ai" style="margin-bottom: 8px"><span class="mi mi-sm">smart_toy</span> IA</div>
           <h3>{{ plan.name }}</h3>
           <div class="plan-meta">
-            <span>🎯 {{ plan.goal }}</span>
-            <span>📅 {{ plan.daysPerWeek }}x/sem</span>
-            <span>⏱ {{ plan.weeks }} sem.</span>
+            <span><span class="mi mi-sm">gps_fixed</span> {{ plan.goal }}</span>
+            <span><span class="mi mi-sm">calendar_month</span> {{ plan.daysPerWeek }}x/sem</span>
+            <span><span class="mi mi-sm">timer</span> {{ plan.weeks }} sem.</span>
           </div>
           <p class="plan-created">{{ formatDate(plan.createdAt) }}</p>
           <button class="restore-btn">Restaurar plano</button>
@@ -86,12 +86,12 @@
 
       @if (history.length === 0) {
         <div class="empty-state">
-          <div class="empty-icon">📋</div>
+          <span class="mi mi-xl" style="color:var(--text-hint)">assignment</span>
           <p>Nenhum plano no histórico</p>
         </div>
       }
       <button class="btn-outline-green" (click)="goWorkoutHistory()">
-        🗓️ Ver histórico de sessões
+        <span class="mi mi-sm">calendar_month</span> Ver histórico de sessões
       </button>
     }
 

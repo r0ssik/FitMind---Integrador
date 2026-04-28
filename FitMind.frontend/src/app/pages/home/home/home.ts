@@ -61,14 +61,14 @@ export class Home {
   ];
 
   challenges: Challenge[] = [
-    { name: '30 dias de treino', icon: '🏆', current: 14, total: 30, unit: 'dias' },
-    { name: 'Beber 2L de água', icon: '💧', current: 3, total: 8, unit: 'copos' },
+    { name: '30 dias de treino', icon: 'emoji_events', current: 14, total: 30, unit: 'dias' },
+    { name: 'Beber 2L de água',  icon: 'water_drop',   current: 3,  total: 8,  unit: 'copos' },
   ];
 
   feed: FeedPost[] = [
-    { user: 'João Barros', initials: 'JB', text: 'Completei meu desafio de 30 dias! 🔥 Nunca me senti tão bem!', time: '2h atrás', likes: 24, liked: false, comments: 5 },
-    { user: 'Emily Mekaru', initials: 'EM', text: 'Treino de hoje concluído! Pernas destruídas 💪', time: '4h atrás', likes: 18, liked: true, comments: 3 },
-    { user: 'Carlos Silva', initials: 'CS', text: 'Novo recorde pessoal no supino: 100kg! 🎯', time: '6h atrás', likes: 42, liked: false, comments: 11 },
+    { user: 'João Barros',  initials: 'JB', text: 'Completei meu desafio de 30 dias! Nunca me senti tão bem!',     time: '2h atrás', likes: 24, liked: false, comments: 5 },
+    { user: 'Emily Mekaru', initials: 'EM', text: 'Treino de hoje concluído! Pernas destruídas.',                  time: '4h atrás', likes: 18, liked: true,  comments: 3 },
+    { user: 'Carlos Silva', initials: 'CS', text: 'Novo recorde pessoal no supino: 100kg! Meses de dedicação.',    time: '6h atrás', likes: 42, liked: false, comments: 11 },
   ];
 
   get workoutDone(): number {

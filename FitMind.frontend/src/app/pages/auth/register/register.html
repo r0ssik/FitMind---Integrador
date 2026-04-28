@@ -12,12 +12,12 @@
 
     <div class="stepper">
       <div class="step" [class.active]="step() === 1" [class.done]="step() > 1">
-        <div class="step-circle">@if (step() > 1) { ✓ } @else { 1 }</div>
+        <div class="step-circle">@if (step() > 1) { <span class="mi mi-sm">check</span> } @else { 1 }</div>
         <span class="step-label">Dados</span>
       </div>
       <div class="step-line" [class.done]="step() > 1"></div>
       <div class="step" [class.active]="step() === 2" [class.done]="step() > 2">
-        <div class="step-circle">@if (step() > 2) { ✓ } @else { 2 }</div>
+        <div class="step-circle">@if (step() > 2) { <span class="mi mi-sm">check</span> } @else { 2 }</div>
         <span class="step-label">Físico</span>
       </div>
       <div class="step-line" [class.done]="step() > 2"></div>
@@ -87,22 +87,22 @@
           <div class="radio-cards">
             <label class="radio-card" [class.selected]="step2Form.value.sex === 'M'" (click)="step2Form.patchValue({sex: 'M'})">
               <input type="radio" value="M" formControlName="sex" />
-              <div class="card-icon">👨</div>
+              <div class="card-icon mi mi-lg">man</div>
               <div class="card-label">Masculino</div>
             </label>
             <label class="radio-card" [class.selected]="step2Form.value.sex === 'F'" (click)="step2Form.patchValue({sex: 'F'})">
               <input type="radio" value="F" formControlName="sex" />
-              <div class="card-icon">👩</div>
+              <div class="card-icon mi mi-lg">woman</div>
               <div class="card-label">Feminino</div>
             </label>
             <label class="radio-card" [class.selected]="step2Form.value.sex === 'NB'" (click)="step2Form.patchValue({sex: 'NB'})">
               <input type="radio" value="NB" formControlName="sex" />
-              <div class="card-icon">🏳️</div>
+              <div class="card-icon mi mi-lg">transgender</div>
               <div class="card-label">Não-binário</div>
             </label>
             <label class="radio-card" [class.selected]="step2Form.value.sex === 'NI'" (click)="step2Form.patchValue({sex: 'NI'})">
               <input type="radio" value="NI" formControlName="sex" />
-              <div class="card-icon">—</div>
+              <div class="card-icon mi mi-lg">remove</div>
               <div class="card-label">Prefiro não informar</div>
             </label>
           </div>
@@ -159,7 +159,7 @@
           <div class="radio-cards">
             @for (goal of goals; track goal.value) {
               <label class="radio-card" [class.selected]="hasGoal(goal.value)" (click)="toggleGoal(goal.value)">
-                <div class="card-icon">{{ goal.icon }}</div>
+                <div class="card-icon mi mi-lg">{{ goal.icon }}</div>
                 <div class="card-label">{{ goal.label }}</div>
               </label>
             }

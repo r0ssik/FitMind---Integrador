@@ -1,23 +1,28 @@
 <div class="page-layout">
 
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">&#8592;</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Histórico Geral</h1>
     <span style="width:40px"></span>
   </header>
 
   <!-- Tabs -->
   <div class="tabs">
-    <button class="tab" [class.active]="tab() === 'workouts'"     (click)="tab.set('workouts')">🏋️ Treinos</button>
-    <button class="tab" [class.active]="tab() === 'diet'"         (click)="tab.set('diet')">🥗 Dietas</button>
-    <button class="tab" [class.active]="tab() === 'achievements'" (click)="tab.set('achievements')">🏅 Conquistas</button>
+    <button class="tab" [class.active]="tab() === 'workouts'"     (click)="tab.set('workouts')">
+      <span class="mi mi-sm">fitness_center</span> Treinos
+    </button>
+    <button class="tab" [class.active]="tab() === 'diet'"         (click)="tab.set('diet')">
+      <span class="mi mi-sm">restaurant</span> Dietas
+    </button>
+    <button class="tab" [class.active]="tab() === 'achievements'" (click)="tab.set('achievements')">
+      <span class="mi mi-sm">military_tech</span> Conquistas
+    </button>
   </div>
 
   <main class="page-content" style="padding-top:14px">
 
     <!-- ── Workouts ──────────────────────────────────────────────────────────── -->
     @if (tab() === 'workouts') {
-      <!-- Summary -->
       <div class="hist-summary">
         <div class="hs-item">
           <span class="hs-val">{{ workouts.length }}</span>
@@ -44,11 +49,11 @@
           <div class="hist-body">
             <span class="hist-title">{{ w.name }}</span>
             <div class="hist-meta">
-              <span>⏱️ {{ w.duration }} min</span>
-              <span>🔩 {{ w.exercises }} exerc.</span>
+              <span><span class="mi mi-sm">timer</span> {{ w.duration }} min</span>
+              <span><span class="mi mi-sm">format_list_numbered</span> {{ w.exercises }} exerc.</span>
             </div>
           </div>
-          <span class="hist-feeling">{{ w.feeling }}</span>
+          <span class="hist-feeling mi mi-sm">{{ w.feeling }}</span>
         </div>
       }
     }
@@ -120,10 +125,10 @@
           </div>
           <div class="hist-body">
             <div style="display:flex; align-items:center; gap:10px">
-              <span style="font-size:28px">{{ a.icon }}</span>
+              <span class="mi mi-lg">{{ a.icon }}</span>
               <div>
                 <span class="hist-title">{{ a.title }}</span>
-                @if (a.rare) { <span class="rare-chip">✨ Raro</span> }
+                @if (a.rare) { <span class="rare-chip"><span class="mi mi-sm">auto_awesome</span> Raro</span> }
               </div>
             </div>
           </div>

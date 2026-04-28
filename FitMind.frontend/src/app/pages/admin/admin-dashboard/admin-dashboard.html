@@ -1,16 +1,16 @@
 <div class="page-layout">
 
   <header class="page-header">
-    <button class="back-btn" (click)="goHome()">&#8592;</button>
+    <button class="back-btn" (click)="goHome()"><span class="mi">arrow_back</span></button>
     <h1>Dashboard Admin</h1>
-    <button class="admin-users-btn" (click)="goUsers()" title="Gestão de usuários">👥</button>
+    <button class="admin-users-btn" (click)="goUsers()" title="Gestão de usuários"><span class="mi">group</span></button>
   </header>
 
   <main class="page-content">
 
     <!-- ── Admin badge ────────────────────────────────────────────────────── -->
     <div class="admin-banner">
-      <span class="ab-icon">🛡️</span>
+      <span class="ab-icon mi">admin_panel_settings</span>
       <div>
         <strong>Painel Administrativo</strong>
         <p>Visão geral da plataforma FitMind</p>
@@ -22,37 +22,37 @@
     <div class="metrics-grid">
 
       <div class="metric-card primary">
-        <span class="mc-icon">👥</span>
+        <span class="mc-icon mi">group</span>
         <span class="mc-val">{{ totalUsers | number }}</span>
         <span class="mc-lbl">Usuários totais</span>
       </div>
 
       <div class="metric-card">
-        <span class="mc-icon">🟢</span>
+        <span class="mc-icon mi">circle</span>
         <span class="mc-val">{{ activeToday }}</span>
         <span class="mc-lbl">Ativos hoje</span>
       </div>
 
       <div class="metric-card">
-        <span class="mc-icon">🆕</span>
+        <span class="mc-icon mi">person_add</span>
         <span class="mc-val">+{{ newThisWeek }}</span>
         <span class="mc-lbl">Novos esta semana</span>
       </div>
 
       <div class="metric-card">
-        <span class="mc-icon">🏋️</span>
+        <span class="mc-icon mi">fitness_center</span>
         <span class="mc-val">{{ workoutsToday }}</span>
         <span class="mc-lbl">Treinos hoje</span>
       </div>
 
       <div class="metric-card">
-        <span class="mc-icon">🏆</span>
+        <span class="mc-icon mi">emoji_events</span>
         <span class="mc-val">{{ challengesActive }}</span>
         <span class="mc-lbl">Desafios ativos</span>
       </div>
 
       <div class="metric-card danger">
-        <span class="mc-icon">🚩</span>
+        <span class="mc-icon mi">flag</span>
         <span class="mc-val">{{ reportsOpen }}</span>
         <span class="mc-lbl">Denúncias abertas</span>
       </div>
@@ -103,8 +103,8 @@
         <div class="report-body">
           <p class="report-reason">{{ r.reason }}</p>
           <div class="report-meta">
-            <span>👤 {{ r.reporter }} → {{ r.target }}</span>
-            <span>📅 {{ r.date }}</span>
+            <span><span class="mi mi-sm">person</span> {{ r.reporter }} → {{ r.target }}</span>
+            <span><span class="mi mi-sm">event</span> {{ r.date }}</span>
           </div>
         </div>
         @if (r.status === 'pending') {
@@ -112,7 +112,9 @@
             <button class="btn btn-outline btn-sm" style="width:auto; color:var(--danger); border-color:var(--danger)"
                     (click)="dismissReport(r.id)">Ignorar</button>
             <button class="btn btn-primary btn-sm" style="width:auto"
-                    (click)="resolveReport(r.id)">✅ Resolver</button>
+                    (click)="resolveReport(r.id)">
+              <span class="mi mi-sm">check_circle</span> Resolver
+            </button>
           </div>
         }
       </div>

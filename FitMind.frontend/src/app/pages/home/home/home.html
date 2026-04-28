@@ -35,7 +35,7 @@
     <div class="widget widget-full" style="margin-bottom: 14px">
       <div class="widget-header">
         <span class="widget-title">Treino de hoje — Perna</span>
-        <span class="widget-icon">🏋️</span>
+        <span class="widget-icon mi">fitness_center</span>
       </div>
       <div class="workout-summary">
         <span style="font-size:13px; color: var(--text-secondary); margin-bottom: 8px; display:block">
@@ -51,7 +51,7 @@
                   [style.color]="ex.done ? 'var(--text-hint)' : 'var(--text-primary)'">{{ ex.name }}</span>
             <span class="workout-sets">{{ ex.sets }}</span>
             <div class="workout-check" [class.done]="ex.done" (click)="toggleExercise(i)">
-              @if (ex.done) { ✓ }
+              @if (ex.done) { <span class="mi mi-sm">check</span> }
             </div>
           </div>
         }
@@ -64,7 +64,7 @@
       <div class="widget widget-full">
         <div class="widget-header">
           <span class="widget-title">Dieta de hoje</span>
-          <span class="widget-icon">🥗</span>
+          <span class="widget-icon mi">restaurant</span>
         </div>
         <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:4px">
           <span class="widget-value">{{ totalCalories }}</span>
@@ -90,7 +90,7 @@
       <div class="widget">
         <div class="widget-header">
           <span class="widget-title">Hidratação</span>
-          <span class="widget-icon">💧</span>
+          <span class="widget-icon mi">water_drop</span>
         </div>
         <div class="widget-value" style="font-size:22px">{{ waterDone }}/{{ waterGoal }}</div>
         <div class="widget-sub" style="margin-bottom: 10px">copos (250ml)</div>
@@ -110,7 +110,7 @@
       <div class="widget">
         <div class="widget-header">
           <span class="widget-title">Progresso</span>
-          <span class="widget-icon">📈</span>
+          <span class="widget-icon mi">show_chart</span>
         </div>
         <div class="widget-value" style="font-size: 20px">-2,4 kg</div>
         <div class="widget-sub">este mês</div>
@@ -140,11 +140,11 @@
       <div class="widget widget-full">
         <div class="widget-header">
           <span class="widget-title">Desafios ativos</span>
-          <span class="widget-icon">🏆</span>
+          <span class="widget-icon mi">emoji_events</span>
         </div>
         @for (c of challenges; track c.name) {
           <div class="challenge-item">
-            <span class="challenge-icon">{{ c.icon }}</span>
+            <span class="challenge-icon mi">{{ c.icon }}</span>
             <div class="challenge-info">
               <div class="challenge-name">{{ c.name }}</div>
               <div class="challenge-progress-text">{{ c.current }}/{{ c.total }} {{ c.unit }}</div>
@@ -161,7 +161,7 @@
       <div class="widget widget-full">
         <div class="widget-header">
           <span class="widget-title">Feed social</span>
-          <span class="widget-icon">👥</span>
+          <span class="widget-icon mi">group</span>
         </div>
         @for (post of feed; track post.user) {
           <div class="feed-item">
@@ -171,9 +171,9 @@
               <p class="feed-text">{{ post.text }}</p>
               <div class="feed-actions">
                 <button [class.liked]="post.liked" (click)="toggleLike(post)">
-                  {{ post.liked ? '❤️' : '🤍' }} {{ post.likes }}
+                  <span class="mi mi-sm" [class.mi-fill]="post.liked">favorite</span> {{ post.likes }}
                 </button>
-                <button>💬 {{ post.comments }}</button>
+                <button><span class="mi mi-sm">chat_bubble_outline</span> {{ post.comments }}</button>
               </div>
             </div>
             <span class="feed-time">{{ post.time }}</span>
@@ -187,23 +187,23 @@
   <!-- Bottom Navigation -->
   <nav class="bottom-nav">
     <button class="nav-item" [class.active]="activeNav() === 'home'"     (click)="navigate('home')">
-      <span class="nav-icon">🏠</span>
+      <span class="nav-icon mi">home</span>
       <span>Início</span>
     </button>
     <button class="nav-item" [class.active]="activeNav() === 'workout'"  (click)="navigate('workout')">
-      <span class="nav-icon">🏋️</span>
+      <span class="nav-icon mi">fitness_center</span>
       <span>Treino</span>
     </button>
     <button class="nav-item" [class.active]="activeNav() === 'diet'"     (click)="navigate('diet')">
-      <span class="nav-icon">🥗</span>
+      <span class="nav-icon mi">restaurant</span>
       <span>Dieta</span>
     </button>
     <button class="nav-item" [class.active]="activeNav() === 'progress'" (click)="navigate('progress')">
-      <span class="nav-icon">📈</span>
+      <span class="nav-icon mi">show_chart</span>
       <span>Progresso</span>
     </button>
     <button class="nav-item" [class.active]="activeNav() === 'social'"   (click)="navigate('social')">
-      <span class="nav-icon">👥</span>
+      <span class="nav-icon mi">group</span>
       <span>Social</span>
     </button>
   </nav>

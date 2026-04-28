@@ -38,7 +38,7 @@ export class FoodDiary {
 
   meals = signal<MealEntry[]>([
     {
-      id: 1, name: 'Café da manhã', time: '07:30', icon: '🌅', expanded: true,
+      id: 1, name: 'Café da manhã', time: '07:30', icon: 'wb_sunny', expanded: true,
       items: [
         { id: 1, name: 'Ovos mexidos', amount: '3 unid.', kcal: 210, protein: 18, carbs: 2, fat: 14 },
         { id: 2, name: 'Pão integral', amount: '2 fatias', kcal: 140, protein: 5, carbs: 26, fat: 2 },
@@ -46,14 +46,14 @@ export class FoodDiary {
       ],
     },
     {
-      id: 2, name: 'Lanche da manhã', time: '10:00', icon: '🍎', expanded: false,
+      id: 2, name: 'Lanche da manhã', time: '10:00', icon: 'nutrition', expanded: false,
       items: [
         { id: 4, name: 'Iogurte grego', amount: '170g', kcal: 100, protein: 17, carbs: 6, fat: 0 },
         { id: 5, name: 'Granola', amount: '30g', kcal: 130, protein: 3, carbs: 22, fat: 4 },
       ],
     },
     {
-      id: 3, name: 'Almoço', time: '12:30', icon: '🍽️', expanded: true,
+      id: 3, name: 'Almoço', time: '12:30', icon: 'restaurant', expanded: true,
       items: [
         { id: 6, name: 'Frango grelhado', amount: '200g', kcal: 330, protein: 62, carbs: 0, fat: 7 },
         { id: 7, name: 'Arroz integral', amount: '150g', kcal: 165, protein: 3, carbs: 35, fat: 1 },
@@ -62,11 +62,11 @@ export class FoodDiary {
       ],
     },
     {
-      id: 4, name: 'Lanche da tarde', time: '15:30', icon: '🥤', expanded: false,
+      id: 4, name: 'Lanche da tarde', time: '15:30', icon: 'local_cafe', expanded: false,
       items: [],
     },
     {
-      id: 5, name: 'Jantar', time: '19:30', icon: '🌙', expanded: false,
+      id: 5, name: 'Jantar', time: '19:30', icon: 'dinner_dining', expanded: false,
       items: [],
     },
   ]);

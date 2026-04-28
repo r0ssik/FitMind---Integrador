@@ -1,9 +1,9 @@
 <div class="page-layout">
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">←</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <div>
       <h1>{{ workoutName }}</h1>
-      <span class="timer-badge">⏱ {{ elapsedFormatted }}</span>
+      <span class="timer-badge"><span class="mi mi-sm">timer</span> {{ elapsedFormatted }}</span>
     </div>
     <div style="width:40px"></div>
   </header>
@@ -19,7 +19,7 @@
   <!-- Descanso ativo -->
   @if (restCountdown() !== null) {
     <div class="rest-banner">
-      <span class="rest-icon">💤</span>
+      <span class="rest-icon mi">bedtime</span>
       <div>
         <strong>Descansando — {{ restCountdown() }}s</strong>
         <div class="rest-mini-bar">
@@ -34,7 +34,7 @@
   @if (finished()) {
     <div class="finish-overlay">
       <div class="finish-card">
-        <div class="finish-icon">🏆</div>
+        <span class="mi mi-xl" style="color:var(--primary)">emoji_events</span>
         <h2>Treino Concluído!</h2>
         <p>{{ workoutName }}</p>
         <div class="finish-stats">
@@ -68,12 +68,15 @@
         @if (ex.expanded) {
 
           <!-- Dica -->
-          <div class="ex-tip-row">💡 {{ ex.tip }}</div>
+          <div class="ex-tip-row">
+            <span class="mi mi-sm" style="color:var(--warning)">lightbulb</span>
+            {{ ex.tip }}
+          </div>
 
           <!-- Vídeo explicativo -->
           <a class="video-link" [href]="ex.videoUrl" target="_blank">
             <div class="video-thumb">
-              <div class="play-btn">▶</div>
+              <span class="mi" style="font-size:28px">play_circle</span>
               <span>Ver vídeo explicativo</span>
             </div>
           </a>
@@ -84,7 +87,7 @@
               <span>Série</span>
               <span>Peso (kg)</span>
               <span>Reps</span>
-              <span>✓</span>
+              <span><span class="mi mi-sm">check</span></span>
             </div>
             @for (set of ex.sets; track set.index) {
               <div class="set-row" [class.set-done]="set.done">
@@ -95,7 +98,9 @@
                   class="set-check"
                   [class.checked]="set.done"
                   (click)="toggleSet(ex.id, set.index - 1)"
-                >{{ set.done ? '✓' : '' }}</button>
+                >
+                  @if (set.done) { <span class="mi mi-sm">check</span> }
+                </button>
               </div>
             }
           </div>
@@ -111,7 +116,8 @@
                   [style.--effort-color]="effortLabels[level].color"
                   (click)="setEffort(ex.id, $any(level))"
                 >
-                  {{ effortLabels[level].icon }} {{ effortLabels[level].label }}
+                  <span class="mi mi-sm">{{ effortLabels[level].icon }}</span>
+                  {{ effortLabels[level].label }}
                 </button>
               }
             </div>
@@ -126,11 +132,9 @@
       [disabled]="progress() < 100"
       (click)="finishWorkout()"
     >
-      @if (progress() < 100) {
-        🏋️ Concluir treino ({{ progress() }}%)
-      } @else {
-        🏆 Concluir treino!
-      }
+      <span class="mi mi-sm">{{ progress() < 100 ? 'fitness_center' : 'emoji_events' }}</span>
+      Concluir treino
+      @if (progress() < 100) { ({{ progress() }}%) }
     </button>
   </main>
 </div>

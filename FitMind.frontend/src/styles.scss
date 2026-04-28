@@ -37,6 +37,25 @@ $fitmind-primary: mat.define-theme((
   --radius-lg: 20px;
 }
 
+// ── Material Symbols utility ─────────────────────────────────────────────────
+.mi {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}
+
+.mi-sm  { font-size: 18px; }
+.mi-lg  { font-size: 28px; }
+.mi-xl  { font-size: 36px; }
+.mi-fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
 html, body {
   height: 100%;
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;

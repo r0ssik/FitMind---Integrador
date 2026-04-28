@@ -29,10 +29,10 @@ export class WorkoutGenerator {
   generatedPlan = signal<GeneratedDay[] | null>(null);
 
   locations = [
-    { value: 'academia', label: 'Academia', icon: '🏋️' },
-    { value: 'casa', label: 'Em casa', icon: '🏠' },
-    { value: 'ar_livre', label: 'Ao ar livre', icon: '🌿' },
-    { value: 'funcional', label: 'Funcional', icon: '⚡' },
+    { value: 'academia',  label: 'Academia',    icon: 'fitness_center' },
+    { value: 'casa',      label: 'Em casa',     icon: 'home' },
+    { value: 'ar_livre',  label: 'Ao ar livre', icon: 'park' },
+    { value: 'funcional', label: 'Funcional',   icon: 'bolt' },
   ];
 
   preferences = [

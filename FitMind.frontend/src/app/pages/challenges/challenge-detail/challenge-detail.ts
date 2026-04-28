@@ -52,7 +52,7 @@ export class ChallengeDetail implements OnInit {
       type:     'group',
       deadline: '30/05/2025',
       daysLeft: 34,
-      icon:     '🏆',
+      icon:     'emoji_events',
       participants: [
         { id: 4, name: 'Carlos Silva',  initials: 'CS', current: 28, isMe: false },
         { id: 1, name: 'Você',          initials: 'EU', current: 22, isMe: true  },
@@ -122,9 +122,6 @@ export class ChallengeDetail implements OnInit {
   }
 
   medalFor(rank: number): string {
-    if (rank === 1) return '🥇';
-    if (rank === 2) return '🥈';
-    if (rank === 3) return '🥉';
     return `${rank}º`;
   }
 

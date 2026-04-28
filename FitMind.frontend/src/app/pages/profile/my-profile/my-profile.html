@@ -1,15 +1,15 @@
 <div class="page-layout">
 
   <header class="page-header">
-    <button class="back-btn" (click)="goBack()">&#8592;</button>
+    <button class="back-btn" (click)="goBack()"><span class="mi">arrow_back</span></button>
     <h1>Meu Perfil</h1>
-    <button class="settings-btn" (click)="goSettings()" title="Configurações">⚙️</button>
+    <button class="settings-btn" (click)="goSettings()" title="Configurações"><span class="mi">settings</span></button>
   </header>
 
   <main class="page-content">
 
     @if (saved()) {
-      <div class="alert alert-success">✅ Perfil atualizado!</div>
+      <div class="alert alert-success">Perfil atualizado!</div>
     }
 
     <!-- ── Avatar + name ──────────────────────────────────────────────────── -->
@@ -27,7 +27,7 @@
       <div class="profile-section">
         <div class="ps-header">
           <span class="section-label" style="margin:0">Dados pessoais</span>
-          <button class="edit-link" (click)="startEdit()">✏️ Editar</button>
+          <button class="edit-link" (click)="startEdit()"><span class="mi mi-sm">edit</span> Editar</button>
         </div>
 
         <div class="profile-data-grid">
@@ -75,12 +75,12 @@
       <div class="profile-section">
         <span class="section-label" style="margin-bottom:10px; display:block">Atividade</span>
         <button class="setting-link" (click)="goAchievements()">
-          <span>🏅 Minhas conquistas</span>
-          <span class="chevron">›</span>
+          <span style="display:flex;align-items:center;gap:8px"><span class="mi mi-sm">military_tech</span> Minhas conquistas</span>
+          <span class="chevron mi mi-sm">chevron_right</span>
         </button>
         <button class="setting-link" style="border:none" (click)="goHistory()">
-          <span>📋 Histórico geral</span>
-          <span class="chevron">›</span>
+          <span style="display:flex;align-items:center;gap:8px"><span class="mi mi-sm">assignment</span> Histórico geral</span>
+          <span class="chevron mi mi-sm">chevron_right</span>
         </button>
       </div>
 
@@ -157,7 +157,9 @@
 
       <div style="display:grid; grid-template-columns:1fr 2fr; gap:10px; margin-top:8px; margin-bottom:24px">
         <button class="btn btn-outline" (click)="cancelEdit()">Cancelar</button>
-        <button class="btn btn-primary" (click)="saveProfile()">💾 Salvar perfil</button>
+        <button class="btn btn-primary" (click)="saveProfile()">
+          <span class="mi mi-sm">save</span> Salvar perfil
+        </button>
       </div>
 
     }
