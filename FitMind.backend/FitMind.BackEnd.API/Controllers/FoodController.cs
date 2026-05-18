@@ -2,6 +2,7 @@ using FitMind.BackEnd.API.Extensions;
 using FitMind.BackEnd.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using FitMind.BackEnd.API.DTOs.Requests;
 
 namespace FitMind.BackEnd.API.Controllers;
 
@@ -38,8 +39,12 @@ public class FoodController(IFoodService foodService) : ControllerBase
 
     /// <summary>Analyze a food photo and return detected items with estimated macros.</summary>
     [HttpPost("analyze-image")]
-    public async Task<IActionResult> AnalyzeImage([FromForm] IFormFile image)
+    [Consumes("multipart/form-data")]
+    
+    public async Task<IActionResult> AnalyzeImage([FromForm] AnalyzeImageRequest request)
     {
+        var image = request.Image;
+        
         if (image is null || image.Length == 0)
             return BadRequest(new { message = "Imagem obrigatória." });
 
